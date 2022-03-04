@@ -1,30 +1,7 @@
-"""
-Description
-    The Koch snowflake is a fractal curve and one of the earliest fractals to
-    have been described. The Koch snowflake can be built up iteratively, in a
-    sequence of stages. The first stage is an equilateral triangle, and each
-    successive stage is formed by adding outward bends to each side of the
-    previous stage, making smaller equilateral triangles.
-    This can be achieved through the following steps for each line:
-        1. divide the line segment into three segments of equal length.
-        2. draw an equilateral triangle that has the middle segment from step 1
-        as its base and points outward.
-        3. remove the line segment that is the base of the triangle from step 2.
-    (description adapted from https://en.wikipedia.org/wiki/Koch_snowflake )
-    (for a more detailed explanation and an implementation in the
-    Processing language, see  https://natureofcode.com/book/chapter-8-fractals/
-    #84-the-koch-curve-and-the-arraylist-technique )
-Requirements (pip):
-    - matplotlib
-    - numpy
-"""
-
-
 from __future__ import annotations
 
 import matplotlib.pyplot as plt  # type: ignore
 import numpy
-import psutil
 
 # initial triangle of Koch snowflake
 VECTOR_1 = numpy.array([0, 0])
@@ -43,7 +20,7 @@ def iterate(initial_vectors: list[numpy.ndarray], steps: int) -> list[numpy.ndar
     exponentially.
     >>> iterate([numpy.array([0, 0]), numpy.array([1, 0])], 1)
     [array([0, 0]), array([0.33333333, 0.        ]), array([0.5       , \
-0.28867513]), array([0.66666667, 0.        ]), array([1, 0])]
+    0.28867513]), array([0.66666667, 0.        ]), array([1, 0])]
     """
     vectors = initial_vectors
     for i in range(steps):
@@ -59,7 +36,7 @@ def iteration_step(vectors: list[numpy.ndarray]) -> list[numpy.ndarray]:
     60 degree rotation so it is bent outwards.
     >>> iteration_step([numpy.array([0, 0]), numpy.array([1, 0])])
     [array([0, 0]), array([0.33333333, 0.        ]), array([0.5       , \
-0.28867513]), array([0.66666667, 0.        ]), array([1, 0])]
+    0.28867513]), array([0.66666667, 0.        ]), array([1, 0])]
     """
     new_vectors = []
     for i, start_vector in enumerate(vectors[:-1]):
@@ -78,7 +55,6 @@ def iteration_step(vectors: list[numpy.ndarray]) -> list[numpy.ndarray]:
 def rotate(vector: numpy.ndarray, angle_in_degrees: float) -> numpy.ndarray:
     """
     Standard rotation of a 2D vector with a rotation matrix
-    (see https://en.wikipedia.org/wiki/Rotation_matrix )
     >>> rotate(numpy.array([1, 0]), 60)
     array([0.5      , 0.8660254])
     >>> rotate(numpy.array([1, 0]), 90)
@@ -93,7 +69,6 @@ def rotate(vector: numpy.ndarray, angle_in_degrees: float) -> numpy.ndarray:
 def plot(vectors: list[numpy.ndarray]) -> None:
     """
     Utility function to plot the vectors using matplotlib.pyplot
-    No doctest was implemented since this function does not have a return value
     """
     # avoid stretched display of graph
     axes = plt.gca()
@@ -114,5 +89,3 @@ if __name__ == "__main__":
 
     processed_vectors = iterate(INITIAL_VECTORS, 5)
     plot(processed_vectors)
-    import psutil
-    print(psutil.cpu_percent())
