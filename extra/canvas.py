@@ -19,9 +19,8 @@ def userclasses(canvas):
 
 def main():
     # Initialize a new Canvas object
-    URL = "https://poquosonschools.instructure.com/"
-    ##go to here to generate new token: https://poquosonschools.instructure.com/profile/settings#
-    TOKEN = "16829~q54QlzaHtWTasM1ETw769w5XIjO9h1pWAj8JMVBmVoYifJslbyPfDK5JctXMrjza"
+    URL = "school email here"
+    TOKEN = "token here"
     canvas = Canvas(URL, TOKEN)
     flag = True
     while flag:
