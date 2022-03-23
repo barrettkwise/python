@@ -1,3 +1,6 @@
+from types import NoneType
+
+
 people = [
          {"name" : "john", "attributes" : ("cool", "strong", "tall")},
          {"name" : "connor", "attributes" : ("fast", "smart", "tall")},
@@ -30,7 +33,7 @@ def questionask():
     if add == "y" or add == "yes":
         addcharacter()
 
-def selectchar(charattributes):
+def selectchar(charattributes: list) -> None:
     index = 0
     while index < 3:
         temp1 = " ".join(charattributes)

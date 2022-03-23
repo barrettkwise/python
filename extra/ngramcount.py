@@ -2,7 +2,7 @@ import socket
 import requests
 import urllib
 
-def word2(word):  
+def word2(word: str) -> bytes:  
     encoded_query = urllib.parse.quote(word)
     params = {'corpus': 'eng-us', 'query': encoded_query, 'topk': 3, 'format': 'tsv'} 
     params = '&'.join('{}={}'.format(name, value) for name, value in params.items()) 
@@ -15,7 +15,7 @@ def word2(word):
     finalresult = bytes(finalresult, 'utf-8')
     return finalresult
     
-def phrases(word):
+def phrases(word: str) -> bytes:
     phrase = word.split(",", -1)
     print(phrase, type(phrase))
     for x, y in enumerate(phrase):

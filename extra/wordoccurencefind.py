@@ -7,7 +7,7 @@ def main():
 
     # Set up your query.
     
-    query = str(input("Enter a word and get the percentage of books it is in:"))
+    query = str(input("Enter a word and get the percentage of books it is in: "))
 
     # Optional: set the maximum number of phrases to return.
     options = pf.SearchOptions()
