@@ -1,6 +1,6 @@
 import itertools as it
 
-def permutations(string):
+def permutations(string: str) -> list:
     perms = it.permutations(string)
     perms = list(perms)
     perms = ["".join(permutation) for permutation in perms]
@@ -8,7 +8,7 @@ def permutations(string):
     [result.append(x) for x in perms if x not in result]
     print(f"{len(result)} possible permutations: {result}")
     return result
-
+    
 def main():
     string = str(input("Please input string: "))
     result = permutations(string)
