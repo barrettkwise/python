@@ -21,7 +21,7 @@ class Solution:
             
         return -1
         
-    def getAdjacent(self, path, grid):
+    def getAdjacent(self, path: List[int], grid: List[List[int]]) -> List[List[int]]:
         result = []
         r, c = path
         
@@ -58,3 +58,5 @@ class Solution:
                 result.append([r + 1, c + 1])
         
         return result
+            
+        
