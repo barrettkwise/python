@@ -24,7 +24,7 @@ def newtons_method(func, dfunc, x):
         x = i
     
     vals = add_dist(vals, (x, f(x)))
-    print(tabulate(vals, numalign="center", tablefmt="orgtbl", headers=["X Values", "Y Values", f"Dist from {(round(x, 2), 0)}"]))
+    print(tabulate(vals, numalign="center", tablefmt="orgtbl", headers=["X Values", "Y Values", f"Dist from {(round(x, 3), 0)}"]))
     plt.plot([i[0] for i in vals], [i[1] for i in vals], marker="o")
     plt.show()
 
